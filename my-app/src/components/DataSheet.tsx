@@ -28,56 +28,105 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(
-  isbn: string,
-  author_translated: string,
-  author: string,
-  title_translated: string,
-  title: string,
-  translatedBy: string,
-  koreanPublisher: string,
-  koreanPublishedDate: string,
-  originalPublishedDate: string,
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number
-) {
-  return { name, calories, fat, carbs, protein };
+interface BookData {
+  ISBN: string;
+  AuthorTranslated: string;
+  Author: string;
+  Title: string[] | string;
+  OriginalTitle: string[] | string;
+  TranslatedBy: string;
+  Publisher: string;
+  PublicationDate: string;
+  OriginalPublicationDate: string;
+  Genre1: string;
+  Genre2: string;
+  Genre3: string | null;
+  Genre4: string | null;
+  Genre5: string | null;
+  MainScreenGraph: string;
+  TtiJiData: string;
+  TtiJiAdType: string[] | string;
+  TtiJiAdTranslation: string | null;
+  BookCoverTranslation: string | null;
+  IncludeDiasporaTerm: string;
+  IdentityUsedForMarketing: string;
+  Note: string | null;
+  MouseHovering: string | null;
+  DiasporicHeritage: string | null;
+}
+const rawBookData: BookData[] = require("../static/rawBookData.json").Bookdata;
+
+function createData(book: BookData) {
+  const title = Array.isArray(book.Title) ? book.Title.join(", ") : book.Title;
+  const originalTitle = Array.isArray(book.OriginalTitle)
+    ? book.OriginalTitle.join(", ")
+    : book.OriginalTitle;
+
+  return {
+    ISBN: book.ISBN,
+    Author: book.Author,
+    Title: title,
+    OriginalTitle: originalTitle,
+    TranslatedBy: book.TranslatedBy,
+    Publisher: book.Publisher,
+    PublicationDate: book.PublicationDate,
+    OriginalPublicationDate: book.OriginalPublicationDate,
+    Genre1: book.Genre1,
+    Genre2: book.Genre2,
+    Genre3: book.Genre3,
+    Genre4: book.Genre4,
+  };
 }
 
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
+const rows = rawBookData.map((book) => createData(book));
 
 export default function DataSheet() {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+      <Table size="small" aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+            <StyledTableCell>ISBN</StyledTableCell>
+            <StyledTableCell align="right">Author</StyledTableCell>
+            <StyledTableCell align="right">Title</StyledTableCell>
+            <StyledTableCell align="right">Original Title</StyledTableCell>
+            <StyledTableCell align="right">Translated By</StyledTableCell>
+            <StyledTableCell align="right">Publisher</StyledTableCell>
+            <StyledTableCell align="right">Publication Date</StyledTableCell>
+            <StyledTableCell align="right">
+              Original Publication Date
+            </StyledTableCell>
+            <StyledTableCell align="right">Genre 1</StyledTableCell>
+            <StyledTableCell align="right">Genre 2</StyledTableCell>
+            <StyledTableCell align="right">Genre 3</StyledTableCell>
+            <StyledTableCell align="right">Genre 4</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+            <StyledTableRow key={row.ISBN}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {row.ISBN}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
+              <StyledTableCell align="right">{row.Author}</StyledTableCell>
+              <StyledTableCell align="right">{row.Title}</StyledTableCell>
+              <StyledTableCell align="right">
+                {row.OriginalTitle}
+              </StyledTableCell>
+              <StyledTableCell align="right">
+                {row.TranslatedBy}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.Publisher}</StyledTableCell>
+              <StyledTableCell align="right">
+                {row.PublicationDate ? row.PublicationDate.slice(0, 10) : "N/A"}
+              </StyledTableCell>
+              <StyledTableCell align="right">
+                {row.OriginalPublicationDate}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.Genre1}</StyledTableCell>
+              <StyledTableCell align="right">{row.Genre2}</StyledTableCell>
+              <StyledTableCell align="right">{row.Genre3}</StyledTableCell>
+              <StyledTableCell align="right">{row.Genre4}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
