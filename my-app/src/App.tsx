@@ -1,34 +1,25 @@
 import React from "react";
 import "./App.css";
-import { Route, createBrowserRouter } from "react-router-dom";
+// import { Route, createBrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import HeaderBar from "./components/HeaderBar";
 import Home from "./pages/Home";
 import Blurbs from "./pages/Blurbs";
 import DataSheetPage from "./pages/DataSheetPage";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/blurbs",
-    element: <Blurbs />,
-  },
-  {
-    path: "/datasheet",
-    element: <DataSheetPage />,
-  },
-]);
-
 function App() {
   return (
     <>
       <HeaderBar />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blurbs" element={<Blurbs />} />
+        <Route path="/datasheet" element={<DataSheetPage />} />
+      </Routes>
+      {/* <Home />
       <Blurbs />
-      <DataSheetPage />
+      <DataSheetPage /> */}
     </>
   );
 }

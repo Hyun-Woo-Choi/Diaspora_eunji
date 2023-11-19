@@ -9,7 +9,7 @@ const PageTitle = styled.h1`
   width: 40%;
   color: #c41230;
   padding: 2rem;
-  marign-top: 5%;
+  marign-top: 0;
 `;
 
 export default function DataSheetPage() {

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import BlurbCard from "../components/BlurbCard";
 
-const PageTitle = styled.h1`
+const PageTitle = styled.div`
   font-family: "Kumar One", cursive;
   font-size: 80px;
   text-align: left;
@@ -10,6 +10,14 @@ const PageTitle = styled.h1`
   color: #c41230;
   padding: 2rem;
   marign-top: 5%;
+`;
+
+const BlurbsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: space-around;
+  // margin: 20px;
+  align-items: center;
 `;
 
 interface BookData {
@@ -44,9 +52,11 @@ export default function Blurbs() {
   return (
     <>
       <PageTitle>Book Blurbs</PageTitle>
-      {rawBookData.map((book) => (
-        <BlurbCard key={book.ISBN} {...book} />
-      ))}
+      <BlurbsContainer>
+        {rawBookData.map((book) => (
+          <BlurbCard key={book.ISBN} {...book} />
+        ))}
+      </BlurbsContainer>
     </>
   );
 }

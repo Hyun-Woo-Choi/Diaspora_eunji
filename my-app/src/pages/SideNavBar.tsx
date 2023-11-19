@@ -30,6 +30,7 @@ export default function SideNavBar() {
           <li>
             <a href="/blurbs">Blurbs</a>
           </li>
+          <li>Article</li>
         </ul>
       </SideBar>
     </>

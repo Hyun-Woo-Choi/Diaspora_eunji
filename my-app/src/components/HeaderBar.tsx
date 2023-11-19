@@ -1,5 +1,7 @@
 import React from "react";
-// import { GrHome } from "react-icons/gr";
+
+import { Link } from "react-router-dom";
+import { IoIosHome } from "react-icons/io";
 import styled from "styled-components";
 
 const Header = styled.header`
@@ -15,6 +17,17 @@ const Header = styled.header`
   align-items: center;
 `;
 
+const HomeLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+`;
+
+const HomeIcon = styled(IoIosHome)`
+  margin-right: 8px;
+`;
+
 export default function HeaderBar() {
   return (
     <div>
@@ -22,6 +35,9 @@ export default function HeaderBar() {
         Diaspora Voice In Translation: Building a Digital Archive of
         Contemporary Novels
         {/* <GrHome /> */}
+        <HomeLink to="/">
+          <HomeIcon />
+        </HomeLink>
       </Header>
     </div>
   );
