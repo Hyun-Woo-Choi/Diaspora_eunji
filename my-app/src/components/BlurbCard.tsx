@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia"; // Correct import statement
-import Typography from "@mui/material/Typography";
+import React, { useState } from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia'; // Correct import statement
+import Typography from '@mui/material/Typography';
 
 interface BlurbCardProps {
   ISBN: string;
@@ -32,9 +32,15 @@ const BlurbCard: React.FC<BlurbCardProps> = ({
   Genre3,
   Genre4,
 }) => {
-  const imageUrl = `../static/Book_Covers_SK/${ISBN}.jpg`
-    ? `../static/Book_Covers_SK/${ISBN}.jpg`
-    : "https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-1932.jpg?w=2000&t=st=1700365885~exp=1700366485~hmac=080cf6f7e768fa2d3497b467c311e9876c103eb6794306b996db727e817a7817";
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  if (`/static/Book_Covers_SK/${ISBN}.jpg` === undefined) {
+    setImageUrl(
+      'https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-1932.jpg?w=2000&t=st=1700365885~exp=1700366485~hmac=080cf6f7e768fa2d3497b467c311e9876c103eb6794306b996db727e817a7817'
+    );
+  } else {
+    setImageUrl(`../static/Book_Covers_SK/${ISBN}.jpg`);
+  }
 
   return (
     <Card>
