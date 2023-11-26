@@ -30,51 +30,47 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 interface BookData {
   ISBN: string;
-  AuthorTranslated: string;
+  Author_Translated: string | null;
   Author: string;
-  Title: string[] | string;
-  OriginalTitle: string[] | string;
-  TranslatedBy: string;
-  Publisher: string;
-  PublicationDate: string;
-  OriginalPublicationDate: string;
-  Genre1: string;
-  Genre2: string;
-  Genre3: string | null;
-  Genre4: string | null;
-  Genre5: string | null;
-  MainScreenGraph: string;
-  TtiJiData: string;
-  TtiJiAdType: string[] | string;
-  TtiJiAdTranslation: string | null;
-  BookCoverTranslation: string | null;
-  IncludeDiasporaTerm: string;
-  IdentityUsedForMarketing: string;
-  Note: string | null;
-  MouseHovering: string | null;
-  DiasporicHeritage: string | null;
+  Title_Translated: string | string;
+  Original_Title: string | string;
+  Translated_By: string;
+  Korean_Publisher: string;
+  Korean_Edition_Publication_Date: string;
+  Original_Publication_Year: string;
+  Genre_1: string;
+  Genre_2: string;
+  Genre_3: string | null;
+  Genre_4: string | null;
+  Genre_5: string | null;
+  Author_of_Korean_Ethnicity: string;
+  Blurb_Translated: string | null;
 }
-const rawBookData: BookData[] = require("../static/rawBookData.json").Bookdata;
+// const rawBookData: BookData[] = require("../static/rawBookData.json").Bookdata;
+const rawBookData: BookData[] = require("../static/Blurbs.json").BookData;
 
 function createData(book: BookData) {
-  const title = Array.isArray(book.Title) ? book.Title.join(", ") : book.Title;
-  const originalTitle = Array.isArray(book.OriginalTitle)
-    ? book.OriginalTitle.join(", ")
-    : book.OriginalTitle;
+  const title = Array.isArray(book.Title_Translated)
+    ? book.Title_Translated.join(", ")
+    : book.Title_Translated;
+  const originalTitle = Array.isArray(book.Original_Title)
+    ? book.Original_Title.join(", ")
+    : book.Original_Title;
 
   return {
     ISBN: book.ISBN,
     Author: book.Author,
     Title: title,
     OriginalTitle: originalTitle,
-    TranslatedBy: book.TranslatedBy,
-    Publisher: book.Publisher,
-    PublicationDate: book.PublicationDate,
-    OriginalPublicationDate: book.OriginalPublicationDate,
-    Genre1: book.Genre1,
-    Genre2: book.Genre2,
-    Genre3: book.Genre3,
-    Genre4: book.Genre4,
+    TranslatedBy: book.Translated_By,
+    Publisher: book.Korean_Publisher,
+    PublicationDate: book.Korean_Edition_Publication_Date,
+    OriginalPublicationDate: book.Original_Publication_Year,
+    Genre1: book.Genre_1,
+    Genre2: book.Genre_2,
+    Genre3: book.Genre_3,
+    Genre4: book.Genre_4,
+    Genre5: book.Genre_5,
   };
 }
 

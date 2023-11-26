@@ -9,29 +9,38 @@ interface BlurbCardProps {
   ISBN: string;
   Author_Translated: string | null;
   Author: string;
-  Title: string[] | string;
-  OriginalTitle: string[] | string;
-  Publisher: string;
-  PublicationDate: string;
-  Genre1: string | null;
-  Genre2: string | null;
-  Genre3: string | null;
-  Genre4: string | null;
-  Genre5: string | null;
+  Title_Translated: string | string;
+  Original_Title: string | string;
+  Translated_By: string;
+  Korean_Publisher: string;
+  Korean_Edition_Publication_Date: string;
+  Original_Publication_Year: string;
+  Genre_1: string;
+  Genre_2: string;
+  Genre_3: string | null;
+  Genre_4: string | null;
+  Genre_5: string | null;
+  Author_of_Korean_Ethnicity: string;
+  Blurb_Translated: string | null;
 }
 
 const BlurbCard: React.FC<BlurbCardProps> = ({
   ISBN,
   Author_Translated,
   Author,
-  Title,
-  OriginalTitle,
-  Publisher,
-  PublicationDate,
-  Genre1,
-  Genre2,
-  Genre3,
-  Genre4,
+  Title_Translated,
+  Original_Title,
+  Translated_By,
+  Korean_Publisher,
+  Korean_Edition_Publication_Date,
+  Original_Publication_Year,
+  Genre_1,
+  Genre_2,
+  Genre_3,
+  Genre_4,
+  Genre_5,
+  Author_of_Korean_Ethnicity,
+  Blurb_Translated,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -46,33 +55,33 @@ const BlurbCard: React.FC<BlurbCardProps> = ({
 
   const ModalContent = (
     <div onMouseDown={handleModalContentMouseDown}>
-      <Typography>{Title}</Typography>
+      <Typography>{Original_Title}</Typography>
       <Typography variant="body2" color="text.secondary">
-        {OriginalTitle}
+        {Title_Translated}
       </Typography>
       <Typography variant="body2" color="text.secondary">
         by {Author}
       </Typography>
       <Typography variant="body2" color="text.secondary">
-        Published {PublicationDate}
+        Published {Original_Publication_Year}
       </Typography>
       <Typography variant="body2" color="text.secondary">
         Author Translated: {Author_Translated}
       </Typography>
 
       <Typography variant="body2" color="text.secondary">
-        Publisher: {Publisher}
+        Korean Publisher: {Korean_Publisher}
       </Typography>
       <Typography variant="body2" color="text.secondary">
         Genre
         <hr />
-        {Genre1}
+        {Genre_1}
         <hr />
-        {Genre2},
+        {Genre_2},
         <hr />
-        {Genre3},
+        {Genre_3},
         <hr />
-        {Genre4}
+        {Genre_4}
       </Typography>
     </div>
   );
@@ -94,7 +103,7 @@ const BlurbCard: React.FC<BlurbCardProps> = ({
       />
       <CardContent sx={{ height: 90 }}>
         <Typography gutterBottom variant="h5" component="div">
-          {OriginalTitle}
+          {Original_Title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {Author}
