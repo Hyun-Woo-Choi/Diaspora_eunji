@@ -1,0 +1,21 @@
+[debug] [2023-11-30T11:47:27.990Z] ----------------------------------------------------------------------
+[debug] [2023-11-30T11:47:27.991Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\byfor\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-11-30T11:47:27.992Z] CLI Version:   12.9.1
+[debug] [2023-11-30T11:47:27.992Z] Platform:      win32
+[debug] [2023-11-30T11:47:27.992Z] Node Version:  v18.16.0
+[debug] [2023-11-30T11:47:27.993Z] Time:          Thu Nov 30 2023 20:47:27 GMT+0900 (대한민국 표준시)
+[debug] [2023-11-30T11:47:27.993Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-11-30T11:47:28.000Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-11-30T11:47:28.000Z] > authorizing via signed-in user (coladrop93@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\byfor\OneDrive\바탕화~1-LAPTOP-OKI97V9F-10945\Diaspora_eunji\my-app
+

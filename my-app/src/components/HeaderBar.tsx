@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import { Link } from "react-router-dom";
-import { IoIosHome } from "react-icons/io";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import { IoIosHome } from 'react-icons/io';
+import styled from 'styled-components';
 
 const Header = styled.header`
   background-color: #c41230;
-  font-family: "Kumar One", cursive;
+  font-family: 'Kumar One', cursive;
   display: flex;
   color: black;
   height: 70px;
