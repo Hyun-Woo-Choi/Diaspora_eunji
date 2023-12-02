@@ -1839,10 +1839,10 @@
     prop-types "^15.8.1"
     react-is "^18.2.0"
 
-"@mui/x-charts@^6.18.0":
-  version "6.18.0"
-  resolved "https://registry.yarnpkg.com/@mui/x-charts/-/x-charts-6.18.0.tgz#944d35365ae54fc4344ac65e9edbe73e06d5d431"
-  integrity sha512-4xdiqPWAkBpV0UOKrbtzmT8Kgv4TrD2cAmq9L2NB/iPJBuEAzTIVZXmLBHGGou7v4xf57fLv5HqBN5iciGHotw==
+"@mui/x-charts@^6.18.2":
+  version "6.18.2"
+  resolved "https://registry.yarnpkg.com/@mui/x-charts/-/x-charts-6.18.2.tgz#f7d2f1bc7f78b957dbd75f3d393466509f7437c7"
+  integrity sha512-KFr4JMUsnw9UZp5QK/cCwBAeHs7OCQfDKEaWzgmStB4CW8hNtBms1N64K7r0byR+W5Yd0D7/iF46Tt0bzj3I+w==
   dependencies:
     "@babel/runtime" "^7.23.2"
     "@mui/base" "^5.0.0-beta.22"

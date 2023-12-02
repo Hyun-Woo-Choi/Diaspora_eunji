@@ -1,0 +1,40 @@
+    <ChartContainer
+      width={2000}
+      height={700}
+      series={[
+        {
+          data: OriginalPublicationYear,
+          label: "Original Publication Year",
+          type: "line",
+        },
+        {
+          data: isAuthorKoreanHeritage,
+          label: "isAuthorKoreanHeritage",
+          type: "line",
+        },
+      ]}
+      xAxis={[{ scaleType: "linear", data: years }]}
+      yAxis={[
+        {
+          scaleType: "linear",
+        },
+      ]}
+    >
+      <LinePlot />
+      <MarkPlot />
+      {events.map((event) => (
+        <ChartsReferenceLine
+          x={new Date(event.date.getFullYear(), 0, 1)}
+          label={event.label}
+          lineStyle={{ stroke: "red" }}
+        />
+      ))}
+      <ChartsXAxis
+        // axisId="bottom"
+        position="bottom"
+        scaleType="linear"
+        data="years"
+        label="years"
+      />
+      <ChartsYAxis position="left" scaleType="linear" label="Books" />
+    </ChartContainer>
